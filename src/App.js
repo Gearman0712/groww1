@@ -34,45 +34,51 @@ function App() {
   const  [category, setCategory] = useState('');
   const  [searchWord, setSearchWord] = useState('');
   const  [myOptions , setMyOptions] = useState([]);
-  const  [s , setMs] = useState();
-  // setCity((state) => {
-  //   console.log(state); // "React is awesome!"
-  //   console.log( "React is awesome!");
-  //   return state;
-  // });
+  const  [myTempOptions , setMyTempOptions] = useState([]);
+  
+ 
   const searchBasedOnCity =() =>
   {   fetch(`https://vast-shore-74260.herokuapp.com/banks?city=${city1}`)
   .then((response) => response.json())
        .then((res) => {
-        console.log(res);
+       // console.log(res);
         setMyOptions(res);
+        setMyTempOptions(res);
        console.log("amit");
    
  
  })
   };
-   
- //console.log(getCity());
-// useEffect(() => {
-//   searchBasedOnCity();
+  const  searchBasedOnSearchWord = () =>{
+    
+    var arr =[];
+    if(searchWord=== null)
+    setMyTempOptions(myOptions);
+  else  if(category !='' && searchWord != '' )
+   { myOptions.forEach((element)=>{
+    
+      if(element[category] === searchWord)
+     { arr.push(element);
+      console.log(`${element[category]} === ${searchWord}`)
+    }
+    })
+    setMyTempOptions(arr);
+  }
 
-// }, []);
-
-// useEffect(() => {
-//   searchBasedOnCity();
-
-// }, [city1]);
+  }
 
 useEffect(() => {
   searchBasedOnCity();
   setCategory('');
 },[city1]);
 
+useEffect(
+  () => {
+  searchBasedOnSearchWord();
+ 
 
-  // useEffect(() => {
-  //   searchBasedOnCity();
-  
-  // }, [s])
+},[searchWord]);
+
  const setCityUtil =(ci) =>{
    setCity(ci);
  }
@@ -101,8 +107,14 @@ useEffect(() => {
    <Grid className="right"  item xs={10}>
     <RightBar changeCity ={(ci) => setCityUtil(ci) }
     
-         changeCategory ={(ca) => setCategory(ca)} changeSearchWord ={(sw) => setSearchWord(sw)} 
-      finalData ={myOptions}
+         changeCategory ={(ca) => setCategory(ca)
+         } 
+         changeSearchWord ={(sw) =>{ setSearchWord(sw) 
+          console.log(`App +${sw}`);
+         }
+            
+            } 
+      finalData ={myOptions}  finalTempData ={myTempOptions} categorydata ={category}
     />
    </Grid>
     

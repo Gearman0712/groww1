@@ -10,10 +10,15 @@ function SearchBar(props)
    <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}} />
       </div>
       <div>
-     <SelectCategory changeCategory ={(ca) => props.changeCategory(ca)}/>
+     <SelectCategory changeCategory ={(ca) => props.changeCategory(ca)}
+         categorydata = {props.categorydata}
+     />
       </div>
       <div>
-  <SearchBox changeSearchWord ={(sw) =>props.changeSearchWord(sw)}/>
+  <SearchBox changeSearchWord ={(sw) =>props.changeSearchWord(sw)}
+      finalData ={props.finalData}
+      categorydata ={props.categorydata} 
+  />
       </div>
     
 

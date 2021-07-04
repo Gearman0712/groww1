@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -18,13 +18,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SelectCategory(props) {
   const classes = useStyles();
-  const [category, setCategory] = React.useState('MUMBAI');
+  const [category, setCategory] = useState(props.categorydata);
+  
+  useEffect(() => {
+    setCategory(props.categorydata);
+   console.log('we');
+   console.log(props.categorydata);
+  
+  
+  }, [props.categorydata]);
+
 const finalchange = (ca) =>{
   props.changeCategory(ca);
 }
   const handleChange = (event) => {
     setCategory(event.target.value);
-    finalchange(category);
+    finalchange(event.target.value);
   };
 
   return (
@@ -37,7 +46,7 @@ const finalchange = (ca) =>{
           value={category}
           onChange={handleChange}
         > 
-        <MenuItem value='IFSC'>IFSC</MenuItem>
+        <MenuItem value='ifsc'>IFSC</MenuItem>
           <MenuItem value='branch'>branch</MenuItem>
           <MenuItem value='bank_name'>bank_name</MenuItem>
           <MenuItem value='bank_id'>bank_id</MenuItem>
