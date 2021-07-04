@@ -2,12 +2,12 @@ import React from 'react';
 import SelectCity from './SelectCity.js';
 import SelectCategory from './SelectCategory.js';
 import SearchBox from './SearchBox.js';
-function SearchBar()
+function SearchBar(props)
 {
     return(
    <div  className ="search_bar_container">
       <div>
-   <SelectCity/>
+   <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}}/>
       </div>
       <div>
      <SelectCategory/>

@@ -28,7 +28,7 @@ import Data from './Data'
     
     // //getDataFromAPI();
      
- console.log(Data);
+ //console.log(Data);
     return (
         
       <Autocomplete

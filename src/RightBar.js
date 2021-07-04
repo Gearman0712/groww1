@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RightBar() {
+function RightBar(props) {
  const classes = useStyles();
   return (
       <>
       <Grid className="right_searchBar" item xs={12}>
          
-          <SearchBar/>
+          <SearchBar changeCity ={(wr)=>{props.changeCity(wr)}}/>
         </Grid>
         <Grid className="right_Output" item xs={12}>
           <OutputTable />

@@ -16,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SelectCity() {
+export default function SelectCity(props) {
   const classes = useStyles();
   const [city, setCity] = React.useState('MUMBAI');
+  const finalchange = (city)=>{props.changeCity(city)} ;
 
   const handleChange = (event) => {
     setCity(event.target.value);
+    finalchange(city);
   };
 
   return (

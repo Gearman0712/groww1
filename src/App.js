@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React ,{useState} from 'react';
 import { Grid ,makeStyles ,Paper } from '@material-ui/core';
 import SideBar from './SideBar';
 import RightBar from './RightBar';
@@ -16,7 +16,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// const MainSearchFunction =(city, category,searchWord) =>{
+
+    
+//   if(searchWord &&( searchWord.length >0))
+
+
+
+// }
+
+
+
+
 function App() {
+  const  [city, setCity] = useState('MUMBAI');
+  const  [category, setCategory] = useState('');
+  const  [searchWord, setsearchWord] = useState('');
+
+   console.log(city);
+
   const classes = useStyles();
   return (
    <>
@@ -34,8 +52,8 @@ function App() {
     <SideBar/>
    </Grid>
 
-   <Grid className="right" item xs={10}>
-    <RightBar/>
+   <Grid className="right"  item xs={10}>
+    <RightBar changeCity ={(ci) => setCity(ci)}/>
    </Grid>
    
  </Grid>
