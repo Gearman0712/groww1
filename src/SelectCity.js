@@ -23,7 +23,7 @@ export default function SelectCity(props) {
 
   const handleChange = (event) => {
     setCity(event.target.value);
-    finalchange(city);
+    finalchange(event.target.value);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function SelectCity(props) {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={city}
-          onChange={handleChange}
+          onChange={(event ,value) =>{handleChange(event ,value)}}
         > 
         <MenuItem value='MUMBAI'>MUMBAI</MenuItem>
           <MenuItem value='DELHI'>DELHI</MenuItem>

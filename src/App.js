@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import React ,{useState,useEffect} from 'react';
+import React ,{useState,useEffect,useSetState} from 'react';
 import { Grid ,makeStyles ,Paper } from '@material-ui/core';
 import SideBar from './SideBar';
 import RightBar from './RightBar';
@@ -34,26 +34,48 @@ function App() {
   const  [category, setCategory] = useState('');
   const  [searchWord, setSearchWord] = useState('');
   const  [myOptions , setMyOptions] = useState([]);
-
+  const  [s , setMs] = useState();
+  // setCity((state) => {
+  //   console.log(state); // "React is awesome!"
+  //   console.log( "React is awesome!");
+  //   return state;
+  // });
   const searchBasedOnCity =() =>
   {   fetch(`https://vast-shore-74260.herokuapp.com/banks?city=${city1}`)
   .then((response) => response.json())
        .then((res) => {
         console.log(res);
-      
+        setMyOptions(res);
        console.log("amit");
-    setMyOptions(res);
-     
+   
  
  })
   };
- 
-  useEffect(() => {
-    searchBasedOnCity();
+   
+ //console.log(getCity());
+// useEffect(() => {
+//   searchBasedOnCity();
+
+// }, []);
+
+// useEffect(() => {
+//   searchBasedOnCity();
+
+// }, [city1]);
+
+useEffect(() => {
+  searchBasedOnCity();
+  setCategory('');
+},[city1]);
+
+
+  // useEffect(() => {
+  //   searchBasedOnCity();
   
-  }, [city1])
-
-
+  // }, [s])
+ const setCityUtil =(ci) =>{
+   setCity(ci);
+ }
 
    console.log(city1);
    console.log(category);
@@ -77,7 +99,9 @@ function App() {
    </Grid>
 
    <Grid className="right"  item xs={10}>
-    <RightBar changeCity ={(ci) => setCity(ci)}     changeCategory ={(ca) => setCategory(ca)} changeSearchWord ={(sw) => setSearchWord(sw)} 
+    <RightBar changeCity ={(ci) => setCityUtil(ci) }
+    
+         changeCategory ={(ca) => setCategory(ca)} changeSearchWord ={(sw) => setSearchWord(sw)} 
       finalData ={myOptions}
     />
    </Grid>
