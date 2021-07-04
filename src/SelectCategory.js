@@ -16,12 +16,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SelectCategory() {
+export default function SelectCategory(props) {
   const classes = useStyles();
   const [category, setCategory] = React.useState('MUMBAI');
-
+const finalchange = (ca) =>{
+  props.changeCategory(ca);
+}
   const handleChange = (event) => {
     setCategory(event.target.value);
+    finalchange(category);
   };
 
   return (

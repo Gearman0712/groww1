@@ -7,13 +7,13 @@ function SearchBar(props)
     return(
    <div  className ="search_bar_container">
       <div>
-   <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}}/>
+   <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}} />
       </div>
       <div>
-     <SelectCategory/>
+     <SelectCategory changeCategory ={(ca) => props.changeCategory(ca)}/>
       </div>
       <div>
-  <SearchBox/>
+  <SearchBox changeSearchWord ={(sw) =>props.changeSearchWord(sw)}/>
       </div>
     
 

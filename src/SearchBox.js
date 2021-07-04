@@ -3,8 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab'
 import Data from './Data'
  
-  export default function SearchBox() {
-       
+  export default function SearchBox(props) {
+    const [value1, setValue1] = useState('');     
 //   const [myOptions, setMyOptions] = useState([]) ;
 //   const [optional, setMyOptional] = useState([]) ;
 //   const getDataFromAPI = () => {
@@ -29,10 +29,22 @@ import Data from './Data'
     // //getDataFromAPI();
      
  //console.log(Data);
+ const finalChange = (value) =>{
+
+ props.changeSearchWord(value);
+
+ }
+ const handleChange = (event ,val) => {
+  setValue1(val);
+  finalChange(value1);
+};
+  
     return (
         
       <Autocomplete
         id="combo-box-demo"
+        value ={value1}
+        onChange={(event,value) => handleChange(event,value)}
         options={Data}
         getOptionLabel={(option) => option}
         style={{ width: 300 }}

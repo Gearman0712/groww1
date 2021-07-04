@@ -6,16 +6,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
-function OutputTable()
-{ const [bankList ,setBankList] =useState([]);
+function OutputTable(props)
+{   console.log('outputtableoutside1');
+     console.log(props.finalData);
+    console.log('outputtableoutside2');
+  const [bankList ,setBankList] =useState([]);
    
-    // useEffect(()=>{
-    //       fetch ('https://jsonplaceholder.typicode.com/users')
-    //       .then(response => response.json())
-    //       .then(result =>setUserList(result))
-    //       .catch(error => console.log(error));
+    useEffect(() =>{
+        setBankList(props.finalData);
+ 
+  console.log('outputtable');
+  console.log(props.finalData);
 
-    // },[])
+    },[])
+
     const columns =[
         {dataField: 'bank_name' , text: 'bank_name' ,sort:true},
         {dataField: 'city' , text:'city',sort:true},
@@ -44,10 +48,7 @@ function OutputTable()
 
         }
     )
-    useEffect(() =>{
-        setBankList(Main_data);
-
-    },[])
+   
 
 
 

@@ -23,10 +23,12 @@ function RightBar(props) {
       <>
       <Grid className="right_searchBar" item xs={12}>
          
-          <SearchBar changeCity ={(wr)=>{props.changeCity(wr)}}/>
+          <SearchBar changeCity ={(wr)=>{props.changeCity(wr)}} 
+          changeCategory ={(ca) => props.changeCategory(ca)}
+           changeSearchWord ={(sw) =>props.changeSearchWord(sw)}/>
         </Grid>
         <Grid className="right_Output" item xs={12}>
-          <OutputTable />
+          <OutputTable finalData ={props.finalData}/>
         </Grid>
         
       </>
