@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import { Grid ,makeStyles ,Paper } from '@material-ui/core';
 import SideBar from './SideBar';
 import RightBar from './RightBar';
@@ -40,15 +40,6 @@ function App() {
   .then((response) => response.json())
        .then((res) => {
         console.log(res);
-      //   var arr=[];
-      //  for (var i = 0; i < res.length; i++) {
-      //   console.log(`${res[i].city } barman ${city1}`)
-      //      if(res[i].city == {city1})
-      //        { console.log("hum");
-      //          arr.push(res[i]);
-      //         }
-          
-      //  }
       
        console.log("amit");
     setMyOptions(res);
@@ -57,15 +48,10 @@ function App() {
  })
   };
  
-  
-
-const setCityUtil =(ci) =>{
-  console.log(`${ci} kumar ${city1}`)
-  if(ci!=city1)
-  {setCity(ci);
+  useEffect(() => {
     searchBasedOnCity();
-  }
-}
+  
+  }, [city1])
 
 
 
@@ -91,7 +77,7 @@ const setCityUtil =(ci) =>{
    </Grid>
 
    <Grid className="right"  item xs={10}>
-    <RightBar changeCity ={(ci) => setCityUtil(ci)}     changeCategory ={(ca) => setCategory(ca)} changeSearchWord ={(sw) => setSearchWord(sw)} 
+    <RightBar changeCity ={(ci) => setCity(ci)}     changeCategory ={(ca) => setCategory(ca)} changeSearchWord ={(sw) => setSearchWord(sw)} 
       finalData ={myOptions}
     />
    </Grid>

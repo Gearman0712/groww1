@@ -18,7 +18,7 @@ function OutputTable(props)
   console.log('outputtable');
   console.log(props.finalData);
 
-    },[])
+    },[props.finalData])
 
     const columns =[
         {dataField: 'bank_name' , text: 'bank_name' ,sort:true},
