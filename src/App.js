@@ -16,16 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const SearchB =(city, category,searchWord) =>{
-
-    
-//   if(searchWord &&( searchWord.length >0))
-
-
-
-// }
-
-
 
 
 function App() {
@@ -52,17 +42,24 @@ function App() {
   const  searchBasedOnSearchWord = () =>{
     
     var arr =[];
-    if(searchWord=== null)
+    if(searchWord=== null || searchWord=== '')
     setMyTempOptions(myOptions);
   else  if(category !='' && searchWord != '' )
-   { myOptions.forEach((element)=>{
-    
-      if(element[category] === searchWord)
-     { arr.push(element);
-      console.log(`${element[category]} === ${searchWord}`)
-    }
+   {  try {
+      var patt = new RegExp(searchWord, "i");
+      
+     myOptions.forEach((element)=>{
+      let n = element[category].search(patt);
+      
+      if(n==0) arr.push(element);
+     
+     
     })
     setMyTempOptions(arr);
+  }
+   catch(error) {
+     console.log(error);
+   }
   }
 
   }
