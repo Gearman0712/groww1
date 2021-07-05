@@ -2,8 +2,8 @@
 import './App.css';
 import React ,{useState,useEffect} from 'react';
 import { Grid  } from '@material-ui/core';
-import SideBar from './SideBar';
-import RightBar from './RightBar';
+import SideBar from './components/SideBar';
+import RightBar from './components/RightBar';
         
 function App(props) {
 

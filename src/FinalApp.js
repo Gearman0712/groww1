@@ -1,8 +1,8 @@
 import React ,{useState}from 'react'
 import App from './App';
-import Details from './Details';
-import Error from './Error';
-import { NavigationBar } from './NavigationBar';
+import Details from './components/Details';
+import Error from './components/Error';
+import { NavigationBar } from './components/NavigationBar';
 import { Route, Switch,Redirect } from 'react-router-dom';
 function FinalApp() {
     const  [currentBankList , setCurrentBankList] = useState([]);
