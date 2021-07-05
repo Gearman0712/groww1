@@ -17,8 +17,7 @@ const Details = (props) => {
              arr= element;
          });
          setBank(arr);
-         console.log(arr);
-         console.log("inside details");
+      
       
    
    
@@ -30,9 +29,7 @@ const Details = (props) => {
      //   searchBasedOnbankId();
      
     },[bank])
-    console.log(bankDetails)
-    console.log(re );
-    console.log('fxad');
+    
     return (
         <>
         

@@ -1,16 +1,16 @@
-import React ,{useState,useEffect}from 'react'
+import React ,{useState}from 'react'
 import App from './App';
 import Details from './Details';
 import Error from './Error';
 import { NavigationBar } from './NavigationBar';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch,Redirect } from 'react-router-dom';
 function FinalApp() {
     const  [currentBankList , setCurrentBankList] = useState([]);
 
     return (
         <>
         <NavigationBar />
-        <main>
+       
         <Switch >
              <Route
                    exact  path={`/all-banks`}
@@ -25,11 +25,12 @@ function FinalApp() {
                 <Details {...props} currentTempBankList ={ currentBankList}  isAuthed={true} />
             )}
             />
-            
+            <Redirect exact from ="/" to="/all-banks" />
             <Route  component={Error} isAuthed={true} /> 
 
+            
         </Switch>
-        </main> 
+        
         </>
     )
 }

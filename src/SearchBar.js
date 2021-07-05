@@ -6,19 +6,20 @@ function SearchBar(props)
 {
     return(
    <div  className ="search_bar_container">
+
       <div className ="item">
-   <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}} />
+                <SelectCity changeCity ={(wr)=>{props.changeCity(wr)}} />
       </div>
       <div className ="item">
-     <SelectCategory changeCategory ={(ca) => props.changeCategory(ca)}
-         categorydata = {props.categorydata}
-     />
+                <SelectCategory changeCategory ={(ca) => props.changeCategory(ca)}
+                    categorydata = {props.categorydata}
+                />
       </div>
       <div>
-  <SearchBox1 changeSearchWord ={(sw) =>props.changeSearchWord(sw)}
-      finalData ={props.finalData}
-      categorydata ={props.categorydata} 
-  />
+                <SearchBox1 changeSearchWord ={(sw) =>props.changeSearchWord(sw)}
+                    finalData ={props.finalData}
+                    categorydata ={props.categorydata} 
+                />
       </div>
     
 
