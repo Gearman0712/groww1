@@ -1,6 +1,6 @@
 import React ,{useState,useEffect} from 'react';
- import Main_data from './Main_data';
- 
+
+ import { BrowserRouter, Route, Switch,Link,NavLink } from 'react-router-dom';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
@@ -14,17 +14,27 @@ function OutputTable(props)
         setBankList(props.finalTempData);
  
     },[props.finalTempData])
+    const linkFormatter = (cell, row, rowIndex) => {
+        return (
+            <NavLink to ={`/bank-details/${row.ifsc}`}>
+            
+                 {cell}
+            
+            </NavLink>
 
+        );
+      };
     const columns =[
-        {dataField: 'bank_name' , text: 'bank_name' ,sort:true},
+        {dataField: 'bank_name' , text: 'bank_name' , formatter: linkFormatter ,sort:true},
         {dataField: 'city' , text:'city',sort:true},
         {dataField: 'branch' ,text:'branch',sort:true},
         {dataField: 'ifsc' ,text:'ifsc',sort:true},
 
     ]
+   
     const pagination = paginationFactory(
         { page:1,
-         sizePerPage :5,
+         sizePerPage :10,
          lastPageText:'>>',
          firstPageText:'<<',
          nextPageText:'>',
@@ -43,20 +53,22 @@ function OutputTable(props)
 
         }
     )
-   
-
+    
 
 
     return (
   <> 
+  
   <BootstrapTable
-   bootstrap4 
-   keyField ='ifsc' 
-   columns ={columns} 
-   data ={bankList} 
+    bootstrap4 
+    keyField ='ifsc' 
+    columns ={columns} 
+    data ={bankList} 
     pagination ={pagination}
    />
   
+
+ 
   
 {/* <table>
 <tr>

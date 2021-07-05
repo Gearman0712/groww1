@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid ,makeStyles ,Paper } from '@material-ui/core';
 import SearchBar from './SearchBar';
 import OutputTable from './OutputTable';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -32,7 +33,9 @@ function RightBar(props) {
            />
         </Grid>
         <Grid className="right_Output" item xs={12}>
+
           <OutputTable finalTempData ={props.finalTempData}/>
+
         </Grid>
         
       </>

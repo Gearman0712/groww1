@@ -4,28 +4,29 @@
 }
 html, body {
   height: 100%;
-  background-color:rgb(50, 205, 76);
+  background-color:rgb(241, 235, 226);
 }
   
 
 .side{
- 
- height: 88vh;
-background-color: orange;
-box-shadow: rgba(0,0,0,0.1);
+ position: relative;
+ height: 100vh;
+background-color:#75E6DA;
+box-shadow: rgba(0,0,0,0.1);font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 150%;color: white;
 
-border-style: solid;
+
 
 }
 .main{
  width:100%;
- position: absolute;
- height : 100%;
- background-color:rgb(204, 238, 248);
  
-  padding:0;
+ height : 100%;
+ background-color:rgb(241, 235, 226);
+ 
+  padding: 0.5rem;
   margin:0;
-  
+  box-shadow: rgba(0,0,0,0.1); 
 }
 
 .top_bar{
@@ -35,14 +36,15 @@ border-style: solid;
  height: 8vh;
 }
 .right{
- padding: 0;
+ padding:2px;
  margin:0;
  
 }
 .right_searchBar{
- height:7vh;
- background-color: deepskyblue;
-
+ 
+ background-color: #75E6DA;
+ margin:0rem;
+ padding: .5rem 1rem;
 }
 .right_Output{
   background-color: rgb(241, 235, 226);
@@ -51,4 +53,9 @@ border-style: solid;
 .search_bar_container
 {display: flex;
  flex-direction: row;
+ justify-content: flex-end;
+
+}
+section{
+  height: 100vh;
 }

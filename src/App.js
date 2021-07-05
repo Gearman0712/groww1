@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import React ,{useState,useEffect,useSetState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import { Grid ,makeStyles ,Paper } from '@material-ui/core';
 import SideBar from './SideBar';
 import RightBar from './RightBar';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function App() {
+function App(props) {
 
   const  [city1, setCity] = useState('MUMBAI');
   const  [category, setCategory] = useState('');
@@ -36,7 +36,7 @@ function App() {
         setMyTempOptions(res);
        console.log("amit");
    
- 
+    props.changeCurrentBankList(res);
  })
   };
   const  searchBasedOnSearchWord = () =>{
@@ -88,14 +88,9 @@ useEffect(
   return (
    <>
    <div className = "main">
-   <Grid container spacing={2}>
+   <Grid container spacing={1}>
 
-   <Grid item xs={12}>
-     <div className ="top_bar">
-     <TopBar/>
-     </div>
-     
-   </Grid>
+   
 
    <Grid className ="side" item xs={2}>
     <SideBar/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab'
-import Data from './Data'
+
  
   export default function SearchBox(props) {
     const [value1, setValue1] = useState();  
@@ -52,7 +52,7 @@ import Data from './Data'
         }
                                        }
         style={{ width: 300 }}
-        renderInput={(params) => <TextField {...params}  label="Controllable" variant="outlined" />}
+        renderInput={(params) => <TextField {...params}  label="Search" variant="outlined" />}
       />
     );
   };
